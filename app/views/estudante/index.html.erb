@@ -1,0 +1,14 @@
+<h1>Informações dos Estudantes</h1>
+
+  <% @students.each do |estudante| %>
+    <div>
+      <details>
+        <summary><%= estudante[:nome] %></summary>
+        <p>Curso: <%= estudante[:curso] %> anos</p>
+        <p>RA: <%= estudante[:ra] %></p>
+      </details>
+    </div>
+  <% end %>
+
+
+<a href="/home"> Home </a>
