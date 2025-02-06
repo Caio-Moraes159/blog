@@ -1,14 +1,27 @@
-<h1>Informações dos Estudantes</h1>
+<div class="container">
+    <h2 style="text-align:center">Informações dos Alunos</h2>
+    <hr>
 
-  <% @students.each do |estudante| %>
-    <div>
-      <details>
-        <summary><%= estudante[:nome] %></summary>
-        <p>Curso: <%= estudante[:curso] %> anos</p>
-        <p>RA: <%= estudante[:ra] %></p>
-      </details>
-    </div>
-  <% end %>
+    <% @students.each do |estudante| %>
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= estudante[:nome] %>" aria-expanded="true" aria-controls="collapseOne">
+                  <%= estudante[:nome] %>
+                </button>
+              </h2>
+              <div id="collapse<%= estudante[:nome] %>" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong><%= estudante[:curso] %></strong>
+                </div>
+                <div class="accordion-body">
+                  <p>RA do Aluno: <%= estudante[:ra] %> </p>
+                </div>
+              </div>
+            </div>
+        </div>
+    <% end %>
 
 
-<a href="/home"> Home </a>
+    <a href="/home"> Home </a>
+</div>
